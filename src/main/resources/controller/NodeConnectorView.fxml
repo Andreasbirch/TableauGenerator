@@ -6,13 +6,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox  xmlns="http://javafx.com/javafx"
+<HBox fx:id="connectorHbox" xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="controller.NodeConnectorController"
             alignment="CENTER"
             prefHeight="100.0" prefWidth="200.0">
             <children>
-                <Pane prefHeight="200.0" prefWidth="200.0" />
                 <TextField />
             </children>
 </HBox>

@@ -28,14 +28,14 @@
                     <children>
                         <VBox layoutX="233.0" layoutY="14.0" prefHeight="72.0" prefWidth="133.0">
                             <children>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="163.0">
+                                <HBox fx:id="infoHbox" alignment="CENTER" prefHeight="100.0" prefWidth="163.0">
                                     <children>
                                         <Label text="1" />
                                         <TextField prefHeight="27.0" prefWidth="116.0" />
-                                        <Label text="T" />
+                                        <Button text="T" onAction="#changeBool" fx:id="changeBoolButton"/>
                                     </children>
                                 </HBox>
-                                <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                                <HBox fx:id="optionsHbox" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                                     <children>
                                         <Button mnemonicParsing="false" text="A" onAction="#branchSplit"/>
                                         <Button mnemonicParsing="false" text="I" onAction="#branchSingle"/>
