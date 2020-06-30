@@ -1,17 +1,14 @@
-package model;
+package controller;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class App extends Application {
-
+public class NodeController extends Application {
     public static void main(String[] args) {
         launch(args);
     }
@@ -20,7 +17,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         Parent root = null;
         try {
-            root = FXMLLoader.load(getClass().getResource("MainView.fxml"));
+            root = FXMLLoader.load(getClass().getResource("NodeView.fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
