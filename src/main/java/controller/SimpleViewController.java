@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -61,8 +62,6 @@ public class SimpleViewController extends Application {
             //Make the single split button reappear
             VBox leafView = (VBox) BackStack.getStack().get(0).getChildren().get(BackStack.getStack().get(0).getChildren().size()-1);
             leafView.getChildren().add(BackStack.getActionBox());
-
-            //BackStack.getStack().get(0).getChildren().get(BackStack.getStack().get(0).getChildren().size()-1).lookup("#actionBox").setVisible(true);
         }
 
     }

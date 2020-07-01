@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackStack {
+    private static int IDCounter = 0;
     private static Object instance;
     private static List<VBox> stack = new ArrayList<>();
     private static HBox actionBox;
@@ -25,6 +26,14 @@ public class BackStack {
         stack.add(vBox);
     }
 
+    public static String getIDCounter() {
+        return String.valueOf(IDCounter);
+    }
+
+    public static  void incrementIDCounter() {
+        IDCounter++;
+    }
+
     public static Object getInstance() {
         return instance;
     }
@@ -35,5 +44,14 @@ public class BackStack {
 
     public static HBox getActionBox() {
         return actionBox;
+    }
+
+    public static VBox findLeafWithID(String id){
+        for (VBox vBox:stack){
+            if(vBox.lookup("labelID").equals(id)){
+                return vBox;
+            }
+        }
+        return null;
     }
 }

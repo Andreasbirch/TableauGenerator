@@ -10,14 +10,15 @@
    <children>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="200.0">
          <children>
-            <Label text="Label" />
+            <Label text="Label" fx:id="labelID"/>
             <TextField prefHeight="27.0" prefWidth="128.0" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="T" fx:id="changeBoolButton" onAction="#changeBool" />
          </children>
       </HBox>
       <HBox fx:id="actionBox" alignment="CENTER" prefHeight="41.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#addSingleLeaf" text="Button" />
+            <Button mnemonicParsing="false" onAction="#addSplitLeaf" text="/\" />
+            <Button mnemonicParsing="false" onAction="#addSingleLeaf" text="I" />
          </children>
       </HBox>
    </children>
