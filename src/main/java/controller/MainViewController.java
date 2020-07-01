@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -58,11 +59,11 @@ public class MainViewController extends Application {
         try {
             nodeConnector = FXMLLoader.load(getClass().getResource("NodeConnectorView.fxml"));
             HBox connectorHbox = (HBox) nodeConnector.lookup("#connectorHbox");
-            Line singleLine = new Line (140, posY, 140, posY+50);
+            Line singleLine = new Line (140, posY, 140, posY+30);
             connectorHbox.getChildren().removeAll();
             connectorHbox.getChildren().add(0, singleLine);
-
-            nodeConnector.setLayoutX(280);
+            nodeConnector.setSpacing(30);
+            nodeConnector.setLayoutX(310);
             nodeConnector.setLayoutY(posY);
 
 

@@ -45,11 +45,11 @@ public class NodeController extends Application {
         try {
             nodeConnector = FXMLLoader.load(getClass().getResource("NodeConnectorView.fxml"));
             HBox connectorHbox = (HBox) nodeConnector.lookup("#connectorHbox");
-            Line singleLine = new Line (140, 50, 140, 50+50);
+            Line singleLine = new Line (140, 50, 140, 80);
             connectorHbox.getChildren().removeAll();
             connectorHbox.getChildren().add(0, singleLine);
-
-            nodeConnector.setLayoutX(280);
+            nodeConnector.setSpacing(30);
+            nodeConnector.setLayoutX(310);
             nodeConnector.setLayoutY(50);
 
 
