@@ -11,6 +11,7 @@ public class BackStack {
     private static Object instance;
     private static List<VBox> stack = new ArrayList<>();
     private static HBox actionBox;
+    private static int entryPoint = 300;
 
     private BackStack() { }
 

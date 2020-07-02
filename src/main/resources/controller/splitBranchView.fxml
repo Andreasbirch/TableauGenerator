@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -8,7 +9,7 @@
 
 <VBox alignment="CENTER" prefWidth="395.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="322.0">
+      <HBox fx:id="ME" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="322.0">
          <children>
             <Line endX="100.0" startX="200.0" startY="-30.0">
                <HBox.margin>
@@ -26,10 +27,11 @@
             <Insets left="90.0" />
          </VBox.margin>
       </HBox>
-      <HBox fx:id="subBranchContainer" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <VBox prefHeight="200.0" prefWidth="100.0" fx:id="leftSubBranch"/>
-            <VBox prefHeight="200.0" prefWidth="100.0" fx:id="rightSubBranch"/>
-         </children></HBox>
+      <SplitPane fx:id="subBranchContainer" dividerPositions="0.5">
+         <items>
+            <VBox fx:id="leftSubBranch" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" />
+            <VBox fx:id="rightSubBranch" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" />
+         </items>
+      </SplitPane>
    </children>
 </VBox>

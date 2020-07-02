@@ -11,6 +11,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.BackStack;
+import model.Leaf;
 
 import java.io.IOException;
 
@@ -41,15 +42,9 @@ public class SimpleViewController extends Application {
     }
 
     public void addLeaf(ActionEvent event) {
-        VBox leaf = null;
-        try{
-            leaf = FXMLLoader.load(getClass().getResource("LeafView.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        BackStack.setActionBox((HBox) leaf.getChildren().get(1));
+        Leaf leaf = new Leaf(primaryStack);
         BackStack.pushToStack(primaryStack);
-        primaryStack.getChildren().add(leaf);
+        primaryStack.getChildren().add(leaf.getLeafView());
     }
 
     public void undo(ActionEvent event) {

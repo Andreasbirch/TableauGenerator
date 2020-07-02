@@ -7,10 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import model.BackStack;
+import model.Leaf;
 
 import java.awt.*;
 import java.io.IOException;
@@ -51,28 +53,25 @@ public class LeafViewController extends Application {
     @FXML
     public void addSplitLeaf(ActionEvent event) {
         VBox branch = null;
-        HBox subBranchContainer = null;
-        VBox leafLeft = null;
-        VBox leafRight = null;
+        SplitPane subBranchContainer = null;
 
+        System.out.println(event.getSource());
         try {
-            branch = FXMLLoader.load(getClass().getResource("splitBranchView.fxml"));
-            leafLeft = FXMLLoader.load(getClass().getResource("LeafView.fxml"));
-            leafRight = FXMLLoader.load(getClass().getResource("LeafView.fxml"));
             LeafView.getChildren().remove(1);
+            branch = FXMLLoader.load(getClass().getResource("splitBranchView.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        subBranchContainer = (HBox) branch.getChildren().get(1);
-        VBox leftSubBranch = (VBox) subBranchContainer.getChildren().get(0);
-        VBox rightSubBranch = (VBox) subBranchContainer.getChildren().get(1);
-        leftSubBranch.getChildren().add(leafLeft);
-        rightSubBranch.getChildren().add(leafRight);
+        subBranchContainer = (SplitPane) branch.getChildren().get(1);
+        VBox leftSubBranch = (VBox) subBranchContainer.getItems().get(0);
+        VBox rightSubBranch = (VBox) subBranchContainer.getItems().get(1);
+        Leaf leafLeft = new Leaf(leftSubBranch);
+        Leaf leafRight = new Leaf(rightSubBranch);
+        leftSubBranch.getChildren().add(leafLeft.getLeafView());
+        rightSubBranch.getChildren().add(leafRight.getLeafView());
 
-        BackStack.getStack().get(0).getChildren().addAll(branch,subBranchContainer);
+        BackStack.getStack().get(1).getChildren().addAll(branch,subBranchContainer);
         BackStack.pushToStack(branch);
-        BackStack.pushToStack(leafLeft);
-        BackStack.pushToStack(leafRight);
         System.out.println(BackStack.getStack().get(BackStack.getStack().size()-1).getParent().getId());
     }
 
@@ -85,6 +84,8 @@ public class LeafViewController extends Application {
             branch = FXMLLoader.load(getClass().getResource("singleBranchView.fxml"));
             leaf = FXMLLoader.load(getClass().getResource("LeafView.fxml"));
             LeafView.getChildren().remove(1);
+            Button btn = (Button) event.getSource();
+            Label lbl = (Label) btn.getParent().getParent().getChildrenUnmodifiable().get(0);
             //LeafView.getChildren().add(leaf.getChildren().get(1));
         } catch (IOException e) {
             e.printStackTrace();
@@ -103,6 +104,7 @@ public class LeafViewController extends Application {
         } else {
             changeBoolButton.setText("T");
         }
+        System.out.println(event.getSource());
     }
 
 }
